@@ -1,49 +1,278 @@
-/* ⚡ Mobile chaos mode — crisp, deep ultraviolet, compact layout */
-@media (max-width: 480px) {
-  body {
-    transform: scale(0.96);
-    transform-origin: top center;
-    background: #04000a;
-    overflow-x: hidden;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech_Eros — Code. Chaos. Creation.</title>
 
-  .bio, .intro, .projects, .hardware, .stay-tuned {
-    font-size: 0.95rem;
-    line-height: 1.3;
-    letter-spacing: 0.5px;
-    color: #c9a3ff; /* soft violet text */
-    text-shadow:
-      0 0 6px rgba(165, 0, 255, 0.8),
-      0 0 12px rgba(200, 0, 255, 0.5);
-    filter: none;
-  }
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-  h1, h2, h3 {
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    color: #d8b4ff;
-    text-shadow:
-      0 0 10px rgba(210, 0, 255, 0.9),
-      0 0 20px rgba(140, 0, 255, 0.5);
-    filter: none;
-  }
+    body {
+      background: radial-gradient(circle at center, #0b0014 0%, #000 100%);
+      color: #cba9ff;
+      font-family: 'Share Tech Mono', monospace;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
-  .project, .hardware-section, .stay-tuned {
-    box-shadow: 0 0 20px rgba(160, 0, 255, 0.4);
-    border-radius: 12px;
-    background: rgba(25, 0, 50, 0.85);
-    padding: 10px;
-    margin: 12px 0;
-  }
+    /* Main Bio Glitch */
+    .glitch {
+      position: relative;
+      font-size: 1.6rem;
+      color: #c85fff;
+      text-shadow: 0 0 15px #9d4aff;
+      animation: glitch 2s infinite;
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
 
-  .arrow {
-    margin-top: 25px;
-    animation: pulse 1.6s infinite;
-    filter: drop-shadow(0 0 5px #c200ff);
-  }
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 #00fff9, -2px 0 #c85fff; }
+      25% { text-shadow: -2px 0 #00fff9, 2px 0 #c85fff; }
+      50% { text-shadow: 0 0 10px #9d4aff; }
+      75% { text-shadow: 1px -1px #00fff9, -1px 1px #c85fff; }
+      100% { text-shadow: 2px 0 #00fff9, -2px 0 #c85fff; }
+    }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 0.3; transform: translateY(0); }
-    50% { opacity: 1; transform: translateY(5px); }
-  }
-}
+    /* Down arrow */
+    .arrow {
+      text-align: center;
+      font-size: 2rem;
+      color: #a46bff;
+      margin-top: 20px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(8px); opacity: 1; }
+    }
+
+    /* Project boxes */
+    .project {
+      border: 1px solid #7d4aff;
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 850px;
+      padding: 15px 25px;
+      background: rgba(80, 0, 120, 0.1);
+      box-shadow: 0 0 25px rgba(130, 0, 255, 0.3);
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project:hover {
+      box-shadow: 0 0 40px rgba(130, 0, 255, 0.6);
+      transform: scale(1.01);
+    }
+
+    .project h3 {
+      color: #a46bff;
+      margin: 0;
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px #9d4aff;
+    }
+
+    .project-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.4s ease;
+      opacity: 0;
+      margin-top: 10px;
+    }
+
+    .project.active .project-content {
+      max-height: 300px;
+      opacity: 1;
+    }
+
+    .project-content p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #d9c1ff;
+    }
+
+    .project-content ul {
+      margin: 10px 0 0 20px;
+      color: #b78aff;
+      font-size: 0.9rem;
+    }
+
+    /* Stay tuned box */
+    .stay-tuned {
+      text-align: center;
+      padding: 40px;
+      border: 1px solid #a46bff;
+      border-radius: 14px;
+      background: rgba(40, 0, 80, 0.3);
+      margin: 50px auto;
+      max-width: 700px;
+      font-size: 1.1rem;
+      color: #cba9ff;
+      text-shadow: 0 0 12px #b46fff;
+      animation: glitchBox 2s infinite;
+    }
+
+    @keyframes glitchBox {
+      0%, 100% { text-shadow: 0 0 8px #b46fff; }
+      50% { text-shadow: 0 0 20px #c200ff, 2px 0 #00fff9; }
+    }
+
+    .links {
+      margin: 60px auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: #00fff9;
+      border: 1px solid #00fff9;
+      padding: 8px 18px;
+      border-radius: 10px;
+      transition: 0.2s;
+      text-shadow: 0 0 10px #00fff9;
+    }
+
+    .links a:hover {
+      background: #00fff9;
+      color: #0b0014;
+      box-shadow: 0 0 20px #00fff9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* ⚡ Mobile chaos mode — crisp, deep ultraviolet, compact layout */
+    @media (max-width: 480px) {
+      body {
+        transform: scale(0.96);
+        transform-origin: top center;
+        background: #04000a;
+        overflow-x: hidden;
+      }
+
+      .bio, .intro, .projects, .hardware, .stay-tuned {
+        font-size: 0.95rem;
+        line-height: 1.3;
+        letter-spacing: 0.5px;
+        color: #c9a3ff;
+        text-shadow:
+          0 0 6px rgba(165, 0, 255, 0.8),
+          0 0 12px rgba(200, 0, 255, 0.5);
+        filter: none;
+      }
+
+      h1, h2, h3 {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        color: #d8b4ff;
+        text-shadow:
+          0 0 10px rgba(210, 0, 255, 0.9),
+          0 0 20px rgba(140, 0, 255, 0.5);
+        filter: none;
+      }
+
+      .project, .hardware-section, .stay-tuned {
+        box-shadow: 0 0 20px rgba(160, 0, 255, 0.4);
+        border-radius: 12px;
+        background: rgba(25, 0, 50, 0.85);
+        padding: 10px;
+        margin: 12px 0;
+      }
+
+      .arrow {
+        margin-top: 25px;
+        animation: pulse 1.6s infinite;
+        filter: drop-shadow(0 0 5px #c200ff);
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 0.3; transform: translateY(0); }
+        50% { opacity: 1; transform: translateY(5px); }
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="glitch">
+    They study theory, I build it.<br>
+    <b>I’m Tech_Eros — class 10, creating systems not excuses ⚙️</b>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <section class="projects">
+    <div class="project">
+      <h3>Eros AI</h3>
+      <div class="project-content">
+        <p>Make or train your own AI with Python — a full professional-level guide made simple.</p>
+        <ul>
+          <li>PC capable of running Python</li>
+          <li>Basic network or cloud access</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Avalion 1.0</h3>
+      <div class="project-content">
+        <p>Self-embedded drone — cheap, reliable, and smart. Controlled via Eros Smartwear with gesture input or ESP-NOW communication.</p>
+        <ul>
+          <li>ESP32</li>
+          <li>MPU6050</li>
+          <li>1S LiHV battery (25C)</li>
+          <li>4x 8520 coreless motors</li>
+          <li>Frame + Propellers</li>
+          <li>TP4056 charger</li>
+          <li>4x AO3400A MOSFETs or 2x DRV8833</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Eros Smartwearable</h3>
+      <div class="project-content">
+        <p>Full voice-controlled smartwatch built on ESP32-C3 — connects to WiFi, runs local AI, and controls Avalion drones wirelessly.</p>
+        <ul>
+          <li>ESP32-C3</li>
+          <li>MPU6050</li>
+          <li>Mic + Speaker module</li>
+          <li>LiHV Battery (450mAh)</li>
+          <li>OLED 0.96” Display</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="stay-tuned">Stay tuned for more ;) — next drop soon...</div>
+
+  <div class="links">
+    <a href="https://instagram.com/tech_eros" target="_blank">Instagram</a>
+    <a href="mailto:relic.of.sky@gmail.com">Gmail</a>
+    <a href="https://github.com/Xpheonix0/eros-lab" target="_blank">GitHub</a>
+    <a href="https://discord.com/users/1410529696055169174" target="_blank">Discord</a>
+  </div>
+
+  <footer>© 2025 Tech_Eros — Code. Chaos. Creation.</footer>
+
+  <script>
+    const projects = document.querySelectorAll('.project');
+    projects.forEach(proj => {
+      proj.addEventListener('click', () => {
+        proj.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
