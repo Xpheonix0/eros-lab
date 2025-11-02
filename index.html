@@ -14,25 +14,24 @@
     }
 
     body {
-      background-color: #0a0013;
-      color: #e0e0ff;
+      background-color: #070011;
+      color: #e0d4ff;
       font-family: 'Share Tech Mono', monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
       overflow-x: hidden;
     }
 
+    /* Fullscreen bio section */
     .bio {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      font-size: 1.5rem;
-      line-height: 1.8;
-      text-shadow: 0 0 10px #b300ff, 0 0 20px #7a00ff;
-      margin: 100px 0;
-      animation: glitch 2.5s infinite;
-      max-width: 80%;
+      padding: 0 15px;
+      text-shadow: 0 0 15px #b300ff, 0 0 30px #7a00ff;
+      animation: glitch 3s infinite;
+      font-size: 1.6rem;
     }
 
     @keyframes glitch {
@@ -40,13 +39,13 @@
       20% { text-shadow: -2px -2px #7a00ff; }
       40% { text-shadow: 2px -2px #b300ff; }
       60% { text-shadow: -2px 2px #7a00ff; }
-      80% { text-shadow: 0 0 15px #b300ff; }
+      80% { text-shadow: 0 0 20px #b300ff; }
       100% { text-shadow: 2px 2px #b300ff; }
     }
 
     .arrow {
-      margin-top: 40px;
       font-size: 2rem;
+      margin-top: 40px;
       animation: bounce 1.5s infinite;
     }
 
@@ -55,40 +54,70 @@
       50% { transform: translateY(10px); }
     }
 
+    /* Sections after scroll */
     section {
-      width: 100%;
+      width: 90%;
       max-width: 900px;
-      margin: 60px auto;
+      margin: 70px auto;
       padding: 30px;
-      background: rgba(20, 0, 40, 0.8);
       border-radius: 20px;
-      box-shadow: 0 0 20px #b300ff80;
+      background: rgba(30, 0, 60, 0.5);
+      box-shadow: 0 0 25px #b300ff88;
     }
 
     h2 {
       text-align: center;
-      color: #c770ff;
-      margin-bottom: 15px;
+      color: #d39bff;
+      margin-bottom: 25px;
       text-shadow: 0 0 10px #7a00ff;
     }
 
     .project h3 {
       cursor: pointer;
-      color: #9d5cff;
-      margin: 10px 0;
-      transition: color 0.3s ease;
+      color: #ae6cff;
+      margin-bottom: 10px;
+      transition: color 0.3s;
     }
 
     .project h3:hover {
-      color: #d49bff;
+      color: #e4baff;
     }
 
     .project-content {
       display: none;
       margin-left: 15px;
-      color: #ddd;
+      color: #ccc;
     }
 
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 10px 15px;
+      font-size: 1.1rem;
+      color: #d9b4ff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .contact a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 10px #b300ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #a37fff;
+      opacity: 0.9;
+      border-top: 1px solid rgba(179, 0, 255, 0.3);
+      margin-top: 60px;
+    }
+
+    /* Stay tuned box */
     .stay-tuned {
       text-align: center;
       font-size: 1.2rem;
@@ -106,41 +135,37 @@
       50% { text-shadow: 0 0 20px #ff00ff; }
     }
 
-    /* --- Responsive compact mode --- */
+    /* --- Mobile view tweaks --- */
     @media (max-width: 480px) {
       .bio {
-        font-size: 1.1rem;
-        letter-spacing: -0.02em;
-        max-width: 90%;
+        font-size: 1.2rem;
         line-height: 1.5;
-        text-shadow: 0 0 6px #b300ff, 0 0 12px #7a00ff;
-      }
-      section {
-        padding: 20px;
+        letter-spacing: -0.03em;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Centered Bio -->
   <div class="bio">
     They study theory, I build it.<br>
     No name. No team. Just code, chaos, and creation.<br>
-    <strong>Tech_Eros</strong><br>
-    <span style="font-size: 1rem; opacity: 0.8;">16 | Class 10 | Engineer-in-making ⚙️</span>
+    <strong>Tech_Eros</strong>
+    <div class="arrow">▼</div>
   </div>
 
-  <div class="arrow">▼</div>
-
+  <!-- Projects Section -->
   <section class="projects">
     <h2>Projects</h2>
 
     <div class="project">
       <h3 onclick="toggleProject(this)">Eros AI</h3>
       <div class="project-content">
-        <p>Make or train your very own AI with Python — a professional’s guide.</p>
+        <p>Train your own AI using Python — minimal hardware, max brain.</p>
         <ul>
-          <li>A PC capable of running Python</li>
+          <li>PC or ESP32 base</li>
+          <li>Python 3.11</li>
         </ul>
       </div>
     </div>
@@ -148,11 +173,11 @@
     <div class="project">
       <h3 onclick="toggleProject(this)">Avalion 1.0 Drone</h3>
       <div class="project-content">
-        <p>My open-source drone project controlled via Android and ESP8266.</p>
+        <p>Open-source drone powered by ESP8266 & Kotlin-based control app.</p>
         <ul>
           <li>D1 Mini (ESP8266)</li>
           <li>MPU6050</li>
-          <li>8520 Coreless Motors</li>
+          <li>8520 Motors</li>
         </ul>
       </div>
     </div>
@@ -160,7 +185,7 @@
     <div class="project">
       <h3 onclick="toggleProject(this)">SmartWear Prototype</h3>
       <div class="project-content">
-        <p>Voice-controlled ESP32 smartwatch prototype — no buttons, just commands.</p>
+        <p>Voice-controlled smartwatch with AI assistant — no buttons, just commands.</p>
         <ul>
           <li>ESP32-C3</li>
           <li>Mic + Speaker + SD module</li>
@@ -169,9 +194,22 @@
     </div>
   </section>
 
-  <section class="stay-tuned">
-    Stay tuned for more ;)
+  <section class="stay-tuned">Stay tuned for more ;)</section>
+
+  <!-- Contacts Section -->
+  <section class="contact">
+    <h2>Connect with me</h2>
+    <a href="https://instagram.com/tech_eros" target="_blank">Instagram</a>
+    <a href="https://xpheonix0.github.io/eros-lab" target="_blank">GitHub</a>
+    <a href="mailto:tech.eros.mail@gmail.com">Gmail</a>
+    <a href="https://discord.com/users/1410529696055169174" target="_blank">Discord</a>
   </section>
+
+  <!-- Footer / Identity -->
+  <footer>
+    16 | Class 10 | Building systems while others build excuses ⚙️<br>
+    Quiet ≠ boring, it’s just overclocked focus 🧠
+  </footer>
 
   <script>
     function toggleProject(el) {
