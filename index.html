@@ -4,21 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech_Eros — Code. Chaos. Creation.</title>
-  /* Force visual parity on GitHub Pages */
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-attachment: fixed;
-}
-
-.identity, .project, .stay-tuned {
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  background-color: rgba(30, 0, 60, 0.3);
-}
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    /* --- GitHub Pages visual parity --- */
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-attachment: fixed;
+    }
+
+    .identity, .project, .stay-tuned {
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      background-color: rgba(30, 0, 60, 0.3);
+    }
 
     html, body {
       margin: 0;
@@ -29,32 +30,32 @@ body {
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
+
+    /* --- Identity Card --- */
     .identity {
-  text-align: center;
-  margin-top: -20px;
-  margin-bottom: 60px;
-  color: #cba9ff;
-  font-size: 1rem;
-  line-height: 1.6;
-  background: rgba(40, 0, 60, 0.25);
-  border: 1px solid #a46bff33;
-  border-radius: 12px;
-  display: inline-block;
-  padding: 10px 25px;
-  box-shadow: 0 0 20px rgba(130, 0, 255, 0.3);
-  backdrop-filter: blur(4px);
-  animation: idpulse 3s infinite ease-in-out;
-}
+      text-align: center;
+      margin-top: -20px;
+      margin-bottom: 60px;
+      color: #cba9ff;
+      font-size: 1rem;
+      line-height: 1.6;
+      border: 1px solid #a46bff33;
+      border-radius: 12px;
+      display: inline-block;
+      padding: 10px 25px;
+      box-shadow: 0 0 20px rgba(130, 0, 255, 0.3);
+      animation: idpulse 3s infinite ease-in-out;
+    }
 
-@keyframes idpulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(130, 0, 255, 0.3); }
-  50% { box-shadow: 0 0 30px rgba(160, 0, 255, 0.6); }
-}
+    @keyframes idpulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(130, 0, 255, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(160, 0, 255, 0.6); }
+    }
 
-.label {
-  color: #a46bff;
-  font-weight: bold;
-}
+    .label {
+      color: #a46bff;
+      font-weight: bold;
+    }
 
     /* --- Intro Section --- */
     .intro {
@@ -77,31 +78,16 @@ body {
       animation: piercing-glitch 2s infinite linear alternate-reverse;
     }
 
-    /* Piercing glitch — bio text */
     @keyframes piercing-glitch {
-      0% {
-        text-shadow: 2px 0 #00fff9, -2px 0 #ff00c8, 0 0 8px #a46bff;
-      }
-      20% {
-        text-shadow: -1px 1px #ff00c8, 1px -1px #00fff9, 0 0 15px #d18aff;
-        transform: skew(0.5deg);
-      }
-      40% {
-        text-shadow: 3px 0 #00fff9, -3px 0 #ff00c8, 0 0 10px #a46bff;
-      }
-      60% {
-        text-shadow: -2px 2px #ff00c8, 2px -2px #00fff9, 0 0 18px #d18aff;
-        transform: skew(-0.5deg);
-      }
-      80% {
-        text-shadow: 1px -1px #00fff9, -1px 1px #ff00c8, 0 0 25px #a46bff;
-      }
-      100% {
-        text-shadow: 0 0 40px #ff00ff, 0 0 25px #00fff9;
-      }
+      0% { text-shadow: 2px 0 #00fff9, -2px 0 #ff00c8, 0 0 8px #a46bff; }
+      20% { text-shadow: -1px 1px #ff00c8, 1px -1px #00fff9, 0 0 15px #d18aff; transform: skew(0.5deg); }
+      40% { text-shadow: 3px 0 #00fff9, -3px 0 #ff00c8, 0 0 10px #a46bff; }
+      60% { text-shadow: -2px 2px #ff00c8, 2px -2px #00fff9, 0 0 18px #d18aff; transform: skew(-0.5deg); }
+      80% { text-shadow: 1px -1px #00fff9, -1px 1px #ff00c8, 0 0 25px #a46bff; }
+      100% { text-shadow: 0 0 40px #ff00ff, 0 0 25px #00fff9; }
     }
 
-    /* Scroll arrow */
+    /* --- Scroll Down Arrow --- */
     .scroll-down {
       position: absolute;
       bottom: 60px;
@@ -119,7 +105,7 @@ body {
       50% { transform: translate(-50%, 10px); }
     }
 
-    /* --- Projects --- */
+    /* --- Projects Section --- */
     .projects {
       background: #03000a;
       padding: 70px 20px;
@@ -193,24 +179,11 @@ body {
     }
 
     @keyframes subtle-glitch {
-      0% {
-        text-shadow: 0 0 10px #d8bfff;
-        transform: translateX(0);
-      }
-      45% {
-        text-shadow: 2px 0 #00fff9, -2px 0 #ff00c8;
-        transform: translateX(1px);
-      }
-      50% {
-        text-shadow: 0 0 20px #b57aff;
-        transform: translateX(-1px);
-      }
-      70% {
-        text-shadow: -2px 0 #ff00c8, 2px 0 #00fff9;
-      }
-      100% {
-        text-shadow: 0 0 15px #d8bfff;
-      }
+      0% { text-shadow: 0 0 10px #d8bfff; transform: translateX(0); }
+      45% { text-shadow: 2px 0 #00fff9, -2px 0 #ff00c8; transform: translateX(1px); }
+      50% { text-shadow: 0 0 20px #b57aff; transform: translateX(-1px); }
+      70% { text-shadow: -2px 0 #ff00c8, 2px 0 #00fff9; }
+      100% { text-shadow: 0 0 15px #d8bfff; }
     }
 
     /* --- Links --- */
@@ -246,6 +219,7 @@ body {
     }
   </style>
 </head>
+
 <body>
 
   <section class="intro">
@@ -263,10 +237,8 @@ body {
     <div class="project">
       <h3>Eros AI</h3>
       <div class="project-content">
-        <p>make or train your very own ai with python get a profesionals guide </p>
-        <ul>
-          <li>a pc capable of running python</li>
-        </ul>
+        <p>Make or train your very own AI with Python — get a professional’s guide.</p>
+        <ul><li>A PC capable of running Python</li></ul>
       </div>
     </div>
 
@@ -288,15 +260,14 @@ body {
     <div class="project">
       <h3>Eros Smartwearable</h3>
       <div class="project-content">
-        <p>its a very capable stealthy watch use your own keywords using tensorflow lite train the bot use google cloud search engine as you want i am using <span class="purple">"Eros"</span> and  </span>"Kira"</span> for idle again . It looks like a normal digital watch but on wake up it comepletely changes also you can use it to control your drone or car using esp32 like me </p>
+        <p>A stealthy AI-driven watch. Uses TensorFlow Lite for voice recognition with custom wake words — mine are <span class="purple">“Eros”</span> and <span class="purple">“Kira”</span>. Controls drones or cars via ESP32 using gestures. Hidden tech in minimal design.</p>
         <ul>
-          <li>ESP32-C3 /mini</li>
-                        <li>MEMS mic + speaker</li>
-                        <li>MPU6050 IMU</li>
-                        <li>Lipo battery according to design</li>
-                        <li>Minimal 2 cm form factor</li>
-         <li>a oled display (touch or non touch) </li>
-       </ul>
+          <li>ESP32-C3 / Mini</li>
+          <li>MEMS mic + speaker</li>
+          <li>MPU6050 IMU</li>
+          <li>Lipo battery (2 cm form factor)</li>
+          <li>OLED display (touch or non-touch)</li>
+        </ul>
       </div>
     </div>
 
@@ -314,16 +285,17 @@ body {
   </section>
 
   <footer>© 2025 Tech_Eros — Code. Chaos. Creation.</footer>
+
   <div class="identity">
-  <p><span class="label">Name:</span> Tech_Eros</p>
-  <p><span class="label">Class:</span> 10</p>
-  <p><span class="label">Field:</span> Electronics • AI • Embedded Systems</p>
-</div>
+    <p><span class="label">Name:</span> Tech_Eros</p>
+    <p><span class="label">Class:</span> 10</p>
+    <p><span class="label">Field:</span> Electronics • AI • Embedded Systems</p>
+  </div>
 
   <script>
     const projects = document.querySelectorAll('.project');
     projects.forEach(p => p.addEventListener('click', () => p.classList.toggle('active')));
   </script>
+
 </body>
 </html>
-
