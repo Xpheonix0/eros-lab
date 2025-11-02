@@ -3,220 +3,313 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eros Labs — Tech_Eros</title>
+  <title>Tech_Eros — Code. Chaos. Creation.</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: #070011;
-      color: #e0d4ff;
+      background: radial-gradient(circle at center, #06000a 0%, #010003 100%);
+      color: #cba9ff;
       font-family: 'Share Tech Mono', monospace;
+      scroll-behavior: smooth;
       overflow-x: hidden;
     }
+    .identity {
+  text-align: center;
+  margin-top: -20px;
+  margin-bottom: 60px;
+  color: #cba9ff;
+  font-size: 1rem;
+  line-height: 1.6;
+  background: rgba(40, 0, 60, 0.25);
+  border: 1px solid #a46bff33;
+  border-radius: 12px;
+  display: inline-block;
+  padding: 10px 25px;
+  box-shadow: 0 0 20px rgba(130, 0, 255, 0.3);
+  backdrop-filter: blur(4px);
+  animation: idpulse 3s infinite ease-in-out;
+}
 
-    /* Fullscreen bio section */
-    .bio {
+@keyframes idpulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(130, 0, 255, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(160, 0, 255, 0.6); }
+}
+
+.label {
+  color: #a46bff;
+  font-weight: bold;
+}
+
+    /* --- Intro Section --- */
+    .intro {
       height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 0 15px;
-      text-shadow: 0 0 15px #b300ff, 0 0 30px #7a00ff;
-      animation: glitch 3s infinite;
-      font-size: 1.6rem;
+      position: relative;
     }
 
-    @keyframes glitch {
-      0% { text-shadow: 2px 2px #b300ff; }
-      20% { text-shadow: -2px -2px #7a00ff; }
-      40% { text-shadow: 2px -2px #b300ff; }
-      60% { text-shadow: -2px 2px #7a00ff; }
-      80% { text-shadow: 0 0 20px #b300ff; }
-      100% { text-shadow: 2px 2px #b300ff; }
+    .glitch {
+      font-size: 1.9rem;
+      color: #d18aff;
+      text-shadow: 0 0 25px #a46bff, 0 0 10px #6b00ff;
+      line-height: 1.6;
+      padding: 0 20px;
+      position: relative;
+      animation: piercing-glitch 2s infinite linear alternate-reverse;
     }
 
-    .arrow {
-      font-size: 2rem;
-      margin-top: 40px;
+    /* Piercing glitch — bio text */
+    @keyframes piercing-glitch {
+      0% {
+        text-shadow: 2px 0 #00fff9, -2px 0 #ff00c8, 0 0 8px #a46bff;
+      }
+      20% {
+        text-shadow: -1px 1px #ff00c8, 1px -1px #00fff9, 0 0 15px #d18aff;
+        transform: skew(0.5deg);
+      }
+      40% {
+        text-shadow: 3px 0 #00fff9, -3px 0 #ff00c8, 0 0 10px #a46bff;
+      }
+      60% {
+        text-shadow: -2px 2px #ff00c8, 2px -2px #00fff9, 0 0 18px #d18aff;
+        transform: skew(-0.5deg);
+      }
+      80% {
+        text-shadow: 1px -1px #00fff9, -1px 1px #ff00c8, 0 0 25px #a46bff;
+      }
+      100% {
+        text-shadow: 0 0 40px #ff00ff, 0 0 25px #00fff9;
+      }
+    }
+
+    /* Scroll arrow */
+    .scroll-down {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.2rem;
+      color: #a46bff;
       animation: bounce 1.5s infinite;
+      text-shadow: 0 0 25px #b57aff;
+      cursor: pointer;
     }
 
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 10px); }
     }
 
-    /* Sections after scroll */
-    section {
-      width: 90%;
-      max-width: 900px;
-      margin: 70px auto;
-      padding: 30px;
-      border-radius: 20px;
-      background: rgba(30, 0, 60, 0.5);
-      box-shadow: 0 0 25px #b300ff88;
+    /* --- Projects --- */
+    .projects {
+      background: #03000a;
+      padding: 70px 20px;
+      position: relative;
+      border-top: 1px solid rgba(130, 0, 255, 0.2);
     }
 
-    h2 {
-      text-align: center;
-      color: #d39bff;
-      margin-bottom: 25px;
-      text-shadow: 0 0 10px #7a00ff;
+    .project {
+      border: 1px solid #7d4aff;
+      border-radius: 12px;
+      margin: 30px auto;
+      max-width: 850px;
+      padding: 15px 25px;
+      background: rgba(40, 0, 80, 0.15);
+      box-shadow: 0 0 25px rgba(130, 0, 255, 0.3);
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project:hover {
+      box-shadow: 0 0 40px rgba(130, 0, 255, 0.6);
+      transform: scale(1.01);
     }
 
     .project h3 {
-      cursor: pointer;
-      color: #ae6cff;
-      margin-bottom: 10px;
-      transition: color 0.3s;
-    }
-
-    .project h3:hover {
-      color: #e4baff;
+      color: #a46bff;
+      margin: 0;
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px #9d4aff;
     }
 
     .project-content {
-      display: none;
-      margin-left: 15px;
-      color: #ccc;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.4s ease;
+      opacity: 0;
+      margin-top: 10px;
     }
 
-    .contact {
+    .project.active .project-content {
+      max-height: 400px;
+      opacity: 1;
+    }
+
+    .project-content p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #d9c1ff;
+    }
+
+    .project-content ul {
+      margin: 10px 0 0 20px;
+      color: #b78aff;
+      font-size: 0.9rem;
+    }
+
+    /* --- Stay Tuned Box --- */
+    .stay-tuned {
+      margin: 60px auto 0;
+      max-width: 700px;
+      border: 1px solid #b57aff;
+      padding: 20px;
+      border-radius: 15px;
       text-align: center;
+      color: #d8bfff;
+      background: rgba(90, 0, 160, 0.1);
+      box-shadow: 0 0 30px rgba(160, 80, 255, 0.3);
+      font-size: 1rem;
+      animation: subtle-glitch 3s infinite;
+      position: relative;
     }
 
-    .contact a {
-      display: inline-block;
-      margin: 10px 15px;
-      font-size: 1.1rem;
-      color: #d9b4ff;
+    @keyframes subtle-glitch {
+      0% {
+        text-shadow: 0 0 10px #d8bfff;
+        transform: translateX(0);
+      }
+      45% {
+        text-shadow: 2px 0 #00fff9, -2px 0 #ff00c8;
+        transform: translateX(1px);
+      }
+      50% {
+        text-shadow: 0 0 20px #b57aff;
+        transform: translateX(-1px);
+      }
+      70% {
+        text-shadow: -2px 0 #ff00c8, 2px 0 #00fff9;
+      }
+      100% {
+        text-shadow: 0 0 15px #d8bfff;
+      }
+    }
+
+    /* --- Links --- */
+    .links {
+      margin: 60px auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .links a {
       text-decoration: none;
-      transition: 0.3s;
+      color: #00fff9;
+      border: 1px solid #00fff9;
+      padding: 8px 18px;
+      border-radius: 10px;
+      transition: 0.2s;
+      text-shadow: 0 0 10px #00fff9;
     }
 
-    .contact a:hover {
-      color: #ffffff;
-      text-shadow: 0 0 10px #b300ff;
+    .links a:hover {
+      background: #00fff9;
+      color: #0b0014;
+      box-shadow: 0 0 20px #00fff9;
     }
 
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 40px;
       font-size: 0.9rem;
-      color: #a37fff;
-      opacity: 0.9;
-      border-top: 1px solid rgba(179, 0, 255, 0.3);
-      margin-top: 60px;
-    }
-
-    /* Stay tuned box */
-    .stay-tuned {
-      text-align: center;
-      font-size: 1.2rem;
-      margin: 40px 0;
-      padding: 20px;
-      border: 1px solid #7a00ff;
-      border-radius: 15px;
-      background: rgba(30, 0, 60, 0.5);
-      box-shadow: 0 0 20px #b300ff;
-      animation: subtle-glitch 3s infinite;
-    }
-
-    @keyframes subtle-glitch {
-      0%, 100% { text-shadow: 0 0 10px #b300ff; }
-      50% { text-shadow: 0 0 20px #ff00ff; }
-    }
-
-    /* --- Mobile view tweaks --- */
-    @media (max-width: 480px) {
-      .bio {
-        font-size: 1.2rem;
-        line-height: 1.5;
-        letter-spacing: -0.03em;
-      }
+      color: #666;
     }
   </style>
 </head>
 <body>
 
-  <!-- Centered Bio -->
-  <div class="bio">
-    They study theory, I build it.<br>
-    No name. No team. Just code, chaos, and creation.<br>
-    <strong>Tech_Eros</strong>
-    <div class="arrow">▼</div>
-  </div>
+  <section class="intro">
+    <div class="glitch">
+      They study theory, I build it.<br>
+      No name. No team. Just code, chaos, and creation.<br><br>
+      <b>I’m Tech_Eros — a mind that codes, builds, and rewires reality.</b>
+    </div>
+    <div class="scroll-down" onclick="document.querySelector('.projects').scrollIntoView({ behavior: 'smooth' });">
+      ↓
+    </div>
+  </section>
 
-  <!-- Projects Section -->
   <section class="projects">
-    <h2>Projects</h2>
-
     <div class="project">
-      <h3 onclick="toggleProject(this)">Eros AI</h3>
+      <h3>Eros AI</h3>
       <div class="project-content">
-        <p>Train your own AI using Python — minimal hardware, max brain.</p>
+        <p>make or train your very own ai with python get a profesionals guide </p>
         <ul>
-          <li>PC or ESP32 base</li>
-          <li>Python 3.11</li>
+          <li>a pc capable of running python</li>
         </ul>
       </div>
     </div>
 
     <div class="project">
-      <h3 onclick="toggleProject(this)">Avalion 1.0 Drone</h3>
+      <h3>Avalion 1.0</h3>
       <div class="project-content">
-        <p>Open-source drone powered by ESP8266 & Kotlin-based control app.</p>
-        <ul>
-          <li>D1 Mini (ESP8266)</li>
-          <li>MPU6050</li>
-          <li>8520 Motors</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="project">
-      <h3 onclick="toggleProject(this)">SmartWear Prototype</h3>
-      <div class="project-content">
-        <p>Voice-controlled smartwatch with AI assistant — no buttons, just commands.</p>
+        <p>Self-embedded drone, cheap and reliable (thrust-to-mass ratio ≥ 1.5). Scalable by customizing motors and batteries. Uses ESP32-C3 for small builds. Controlled via Eros Smartwear using gestures — connects through ESP-NOW for low latency.</p>
         <ul>
           <li>ESP32-C3</li>
-          <li>Mic + Speaker + SD module</li>
+          <li>MPU6050</li>
+          <li>1S LiPo 25C+</li>
+          <li>4× 8520 Coreless Motors</li>
+          <li>TP4056 Charger</li>
+          <li>4× AO3400A MOSFETs / 2× DRV8833</li>
         </ul>
       </div>
     </div>
+
+    <div class="project">
+      <h3>Eros Smartwearable</h3>
+      <div class="project-content">
+        <p>its a very capable stealthy watch use your own keywords using tensorflow lite train the bot use google cloud search engine as you want i am using <span class="purple">"Eros"</span> and  </span>"Kira"</span> for idle again . It looks like a normal digital watch but on wake up it comepletely changes also you can use it to control your drone or car using esp32 like me </p>
+        <ul>
+          <li>ESP32-C3 /mini</li>
+                        <li>MEMS mic + speaker</li>
+                        <li>MPU6050 IMU</li>
+                        <li>Lipo battery according to design</li>
+                        <li>Minimal 2 cm form factor</li>
+         <li>a oled display (touch or non touch) </li>
+       </ul>
+      </div>
+    </div>
+
+    <div class="stay-tuned">
+      Stay tuned for more projects ;) <br>
+      <small>— The chaos is still evolving —</small>
+    </div>
+
+    <div class="links">
+      <a href="https://instagram.com/tech_eros" target="_blank">Instagram</a>
+      <a href="mailto:relic.of.sky@gmail.com">Gmail</a>
+      <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a>
+      <a href="https://discord.com/users/1410529696055169174" target="_blank">Discord</a>
+    </div>
   </section>
 
-  <section class="stay-tuned">Stay tuned for more ;)</section>
-
-  <!-- Contacts Section -->
-  <section class="contact">
-    <h2>Connect with me</h2>
-    <a href="https://instagram.com/tech_eros" target="_blank">Instagram</a>
-    <a href="https://xpheonix0.github.io/eros-lab" target="_blank">GitHub</a>
-    <a href="mailto:tech.eros.mail@gmail.com">Gmail</a>
-    <a href="https://discord.com/users/1410529696055169174" target="_blank">Discord</a>
-  </section>
-
-  <!-- Footer / Identity -->
-  <footer>
-    16 | Class 10 | Building systems while others build excuses ⚙️<br>
-    Quiet ≠ boring, it’s just overclocked focus 🧠
-  </footer>
+  <footer>© 2025 Tech_Eros — Code. Chaos. Creation.</footer>
+  <div class="identity">
+  <p><span class="label">Name:</span> Tech_Eros</p>
+  <p><span class="label">Class:</span> 10</p>
+  <p><span class="label">Field:</span> Electronics • AI • Embedded Systems</p>
+</div>
 
   <script>
-    function toggleProject(el) {
-      const content = el.nextElementSibling;
-      content.style.display = content.style.display === 'block' ? 'none' : 'block';
-    }
+    const projects = document.querySelectorAll('.project');
+    projects.forEach(p => p.addEventListener('click', () => p.classList.toggle('active')));
   </script>
-
 </body>
 </html>
